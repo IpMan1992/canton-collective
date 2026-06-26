@@ -2,6 +2,64 @@
 
 Read before every run; append after. Newest on top. Status: 🔺 Accelerating · ▶️ Steady · 🔻 Cooling · 🆕 New
 
+## Run 2026-06-26 (bi-weekly scheduled cloud run — period-over-period validation pass)
+_Second 06-26 block by design, not a duplicate. The block below it was reconstructed from a Drive backup whose only delta-basis was the same-day 06-25 baseline (so its on-site deltas were necessarily Steady). This run re-pulls live and re-bases the read on a **clean non-overlapping 14-day comparison — Jun 12–26 vs prior 14d May 29–Jun 11** — to test whether MAMC's takeover is structural or a same-day artifact. **Verdict: structural.** Store GMV $32,789 (+7.6% vs prior 14d). Net-new value this run = (1) the clean period-over-period vendor read confirms every prior call; (2) two new external threads — **pointelle romantic-knit** (coquette refinement) and Pinterest **"Glamoratti" maximalism** (quiet-luxury declared *over* → structural First Floor headwind); (3) romantic-goth now named in Pinterest Predicts (Delete-Ex tailwind strengthens); (4) the MAMC hero is **more oversold than last run (−33u vs −32u)** and a second floral SKU is now low (10u). Firewall: store verified cantoncollective.com; all sampled product media on CC CDN `…/0752/7881/1372/`, zero HAE._
+
+**Cross-label pattern:** Romantic-feminine + polka/coquette cluster is still the fortnight's engine, and a clean period-over-period cut (not a same-day baseline) **confirms the MAMC takeover is real, not noise: MAMC 22.4%→36.0% (+13.6pp, $11.8k / +73%) holds #1**, while alt/Y2K lines keep ceding (1Jinn 34.3%→27.4%, −6.9pp, $9.0k / −14%; 2TH Desire 16.9%→10.8%, −6.1pp, $3.5k / −31% — cooling hardest). Delete-Ex is the steady alt anchor (#3, 12.8% / −0.1pp, $4.2k / +7%). **±3pp flags: MAMC +13.6, 1Jinn −6.9, 2TH −6.1** (Outtheblue +2.4pp just under the bar but is the fastest % climber, +258%). Two refinements vs the reconstructed block: (1) **pointelle knitwear** emerges as summer's romantic-coquette knit story — a sourcing thread, CC's coquette stock is woven/satin not fine-knit; (2) **Pinterest "Glamoratti" maximalism** declares quiet-luxury over — a tailwind for 1Jinn statement/going-out + the 1Jinn M2M jewelry sub-line, and a structural headwind for First Floor.
+**Highest-leverage opportunity:** Same two unpulled levers as the prior block, now with sharper urgency: **(a) RESTOCK MAMC's Lavender Floral Chiffon Slip Mini** — still the store's #1 mover ($1,792 / 31 ord in 14d) but inventory is now **−33u (deeper oversell than the −32u flagged last run)**; every oversold day is forgone GMV plus fulfilment risk on the most on-trend SKU in the store. **Green Fold-Over Asymmetric Hem Midi Skirt** is now a top-3 MAMC mover ($1,035 / 17) and **down to 10u — the next restock candidate.** **(b) Give Outtheblue homepage + email weight now** — fastest climber confirmed across a clean period basis (+258%, 1.0%→3.4%, +2.4pp), with deep stock on the two peaking prints (Polka Dot Cat LS Knit 305u, Velvet Polka Dot Raglan 294u, Polka Dot Cat Heart Crew 239u, Pink Polka Dot Balletcore Cami 70u). Textbook POSITION EARLY → PUSH NOW with proven on-site velocity. (Note: Pink Eyelet Cat Print Mini Skirt down to 1u — near sellout.)
+
+_Status: 🔺 Accelerating · ▶️ Steady · 🔻 Cooling · 🆕 New. Δ = vs prior run (the reconstructed 2026-06-26 block). Lane prefix in Directive: PUSH NOW / POSITION EARLY / CLEAR ONLY._
+
+### 1Jinn Studio
+_Vendor momentum: $8,986 (−14.0% vs prior 14d), share 27.4% / −6.9pp — cedes #1 to MAMC (confirmed on clean period basis). 1Jinn M2M jewelry tracked separately ($336)._
+| Signal | Status | Δ | Why (evidence) | Inventory (status:active) | Directive |
+|---|---|---|---|---|---|
+| Subverted polka dots | 🔺 | ▶️ held at peak | Defining SS26 print confirmed — jumbo "coin spots," unexpected colorways; Khaite/Altuzarra/Carolina Herrera/Dries Van Noten (WhoWhatWear, Glossary Mag, Jun'26) | Women's Dotted Meditation Pants ($585/14), Polka Dot Stripe Henley 3-pc Set ($369/7), Polka Dot Racerback Tank (276u), Y2K Polka Dot Stripe Romper (48u) | **PUSH NOW** |
+| Coquette / balletcore | ▶️ | ▶️ maturing | Still "trend of 2026" (#balletcore 500M+), now refining to quiet-luxury fabrics (silk, pointelle) — at peak, not rising (UO, RunwayLive, Jun'26) | Y2K Beaded Multi Strap Top ($1,057/29 — top 1Jinn mover), Metal Flower Pleated Strapless Mini ($420/8) | **PUSH NOW while at peak** |
+| Glamoratti / maximalist statement | 🆕 | 🆕 | Pinterest Summer-2026 "Glamoratti" — dialed-up decadence, bold jewelry, sculpted shoulders; quiet-luxury declared *over* (Pinterest Newsroom, WhoWhatWear, Jun'26) | Napoleon Double-Breasted Fitted Jacket ($485/5 — new mover, structured shoulder), Y2K Beaded Multi Strap Top, 1Jinn M2M chokers / ear cuffs / charms | **POSITION EARLY** — lean the M2M jewelry sub-line into the maximalist swing |
+| Acubi (C/K-fashion) | ▶️ | ▶️ commercializing | Now broad fast-fashion uptake; 2026 Douyin breakout = dusty-blue + cream, cleaner silhouettes (CNN, Acubi.blog, Jun'26) | Acubi Layered Polo ($252/7), Claywashed Blade Jeans ($300/3), Fold & Frame Turtleneck (56u), Airframe Pants (132u) | **POSITION EARLY** — weight CC's Japan/AU base |
+| Sailor-core / nautical | ▶️ | ▶️ held (was 🆕) | Pinterest official Summer-2026: sailor stripes, crisp blues/whites (Pinterest Newsroom, Refinery29) | Nautical Sailor Collar Knit Crop ($327/6 — repeat mover); flag nautical depth next drop | **POSITION EARLY** |
+| Mermaidcore → "Summer Siren" (literal kitsch) | 🔻 | ▶️ reversal holds | "Mermaidcore out, Summer Siren in" — literal shell/starfish kitsch maturing out (Yahoo/Glam, Jun'26) | Petal Tide Graphic Loose Tee (83u), Slim Tee (50u) | **CLEAR ONLY** — sell through, do NOT reorder |
+| Kawaii novelty | ▶️ | ▶️ | Evergreen GenZ cute | Midnight Meow Cat Ear Hoodie ($547/11), Devil Horn Hoodie ($291/5) | Hold |
+
+### MAMC
+_Vendor momentum: $11,806 (+73.0% vs prior 14d), share 36.0% / +13.6pp — holds #1 on a clean period basis. Caveat: hero SKU oversold −33u; a second floral SKU low at 10u._
+| Signal | Status | Δ | Why (evidence) | Inventory | Directive |
+|---|---|---|---|---|---|
+| Watercolor / painterly florals | ▶️ | ▶️ at peak | Painterly botanicals / soft watercolour washes still the rich-summer dress story (WhoWhatWear, Jun'26) | **Lavender Floral Chiffon Slip Mini ($1,792/31 — store #1, OVERSOLD −33u → RESTOCK)**, Dusty Rose Gauze Bandeau ($1,562/27), **Green Fold-Over Asymmetric Hem Midi Skirt ($1,035/17 — top-3, now 10u → RESTOCK NEXT)**, Dreamy Underwater Garden Slip Maxi ($803/8), Watercolor Lily Wrap ($556/12), Watercolor Animal Prints Halter ($374/12), Blue Ocean Floral Slip (10u), Halterneck Yellow Floral Midi (59u) | **PUSH NOW + RESTOCK** |
+| Lace slip / boudoir romantic | 🔺 | ▶️ held strong | Lace-slip "the dress of 2026"; Bodice Core / corsetry corroborates (corsets +43% YoY) (nss, E!, Jun'26) | Scalloped Floral Lace Camisole ($329/9), Sequin Mesh Overlay Tie-Strap Cami ($269/6, 15u), Flyaway Lace-Trim Blue Tube Top (33u), slip dresses across line | **PUSH NOW** |
+| Pointelle / fine romantic knit | 🆕 | 🆕 | Pointelle named "summer's most romantic knit," tied to coquette quiet-luxury fabrics; Hill House pointelle long-sleeve the bellwether (RunwayLive, Jun'26) | Thin match — MAMC coquette stock is woven chiffon/satin, not fine-knit | **POSITION EARLY** — sourcing flag: raise pointelle / openwork-knit camis with MAMC for next drop |
+| Coquette babydoll & satin bows | ▶️ | ▶️ | Balletcore/coquette at peak; satin + tiny-bow + babydoll | Vintage Satin Red Bubble Hem Baby Doll Tee ($520/9), Bow Knot Pink Babydoll Cami (18u), Bow Knot Pocket Pink Midi Skirt (56u), Ruffle Trim Gingham Babydoll Mini ($422/6) | **PUSH NOW** |
+| Jumbo gingham / check | ▶️ | ▶️ | Key summer print — jumbo checks, soft-luxury Euro-summer (Woman&Home, Jun'26) | Ruffle Trim Gingham Babydoll Mini ($422/6), Double Waisted Glen Check Wide-Leg Trousers ($486/4) | **PUSH NOW** |
+
+### 2TH Desire · Delete-Ex · First Floor · Outtheblue
+
+**2TH Desire** (deconstructed / soft rebellion) — _$3,538 (−31.4%), share 10.8% / −6.1pp — cooling hardest of the active lines; polka + retro-cami is the lever to arrest decline._
+| Signal | Status | Δ | Why (evidence) | Inventory | Directive |
+|---|---|---|---|---|---|
+| Subverted polka dots | 🔺 | ▶️ held | Same SS26 print story; deconstructed reading fits 2TH | Ruched Polka Dot Belt Tube Top ($366/6), Deconstructed Spliced Polka Dot Off-Shoulder | **PUSH NOW** |
+| Layered / retro camisole | ▶️ | ▶️ | Boudoir-layering / slip-over-tee styling | Retro Camisole Layer Top ($819/17 — top 2TH mover) | **PUSH NOW** |
+
+**Delete-Ex** (dark romantic / grunge) — _$4,191 (+6.7%), share 12.8% / −0.1pp — holds #3, steadiest of the alt lines._
+| Signal | Status | Δ | Why (evidence) | Inventory | Directive |
+|---|---|---|---|---|---|
+| Vamp Romantic / Romantic Goth | 🔺 | 🔺 strengthening | Now **named in Pinterest Predicts 2026** (goth w/ glossy-glam twist); "Exposed Boning 2.0," velvet +90% / corsets +43% / fishnet +86% YoY (Pinterest, Toonizer, Fashna, Jun'26) | Shell Buttons Front Puff Sleeve Shirt ($678/18 — top Deleteex mover), corsetry / lace / velvet stock | **POSITION EARLY** — flag corset / velvet / lace depth for next drop |
+| Mermaidcore × Y2K crossover (literal) | 🔻 | ▶️ reversal holds | Summer-Siren rebrand — literal sea-motif kitsch maturing out | Y2K Starfish Foldover Maxi Skirt ($378/9), Y2K Hibiscus Sheer V-Neck Baby Tee ($284/7) | **CLEAR ONLY** — sell through, don't reorder |
+
+**First Floor** (quiet luxury / minimalist) — deprioritized. $1,039 (−31.1%), share 3.2% / −1.8pp. **Structural headwind flagged:** Pinterest Summer-2026 declares quiet-luxury *over* (Glamoratti maximalism) — FF's positioning is now against the GenZ tide. No deep-score this run.
+
+**Outtheblue** (emerging) — 🔺 **fastest climber, confirmed across clean period basis.** $1,122 (+258%), share 1.0%→3.4% (+2.4pp). Aesthetic = kawaii cat-novelty × polka dots × coquette/balletcore.
+| Signal | Status | Δ | Why (evidence) | Inventory | Directive |
+|---|---|---|---|---|---|
+| Polka dots × kawaii cat-novelty | 🔺 | ▶️ confirmed | Line intersects defining SS26 print + evergreen GenZ cute; on-site +258% on clean 14d basis | Polka Dot Cat LS Knit (305u), Vintage Velvet Polka Dot Raglan Tee (294u — velvet +90% bonus), Polka Dot Cat Heart Crew Tee (239u), Whimsical Cat Crop (136u), Red Polka Dot Ruffle Midi Skirt (53u); _Pink Eyelet Cat Mini Skirt 1u — near sellout_ | **PUSH NOW** |
+| Coquette / balletcore | 🔺 | ▶️ | Line carries literal balletcore/coquette pieces; coquette at peak | Pink Polka Dot Balletcore Tiered Cami (70u), Pink Heart Cat Satin Camisole (44u) | **PUSH NOW** |
+
+**Cross-label buying flag — Sports-luxe / Blokette / Glamoratti (reconfirmed by Pinterest Summer-2026):** sport moving from spectator moment to full aesthetic; maximalism + bold jewelry the year's headline. CC has **no jersey/sporty core** → **POSITION EARLY as a SOURCING conversation**, not an on-site push. The two wearable shards CC can touch today: **sailor-core** (1Jinn, see above) and the **1Jinn M2M jewelry sub-line** as a Glamoratti play.
+
+**Infrastructure note:** CC products still carry **no aesthetic tags** — matching was again done by reasoning over titles/descriptions/images + CDN-verified live product. A one-time tagging pass (coquette / Y2K / polka / balletcore / vamp-romantic / acubi / sailor-core / cat-novelty / pointelle) would make every future radar run faster and sharper.
+
+---
+
 ## Run 2026-06-26 (bi-weekly cloud run)
 _Recovered locally from the cloud run's Drive backup — the cloud `git push` hit 403 (no write access to the repo at run time), so its commit `aef429c` never reached GitHub. Content is the cloud agent's, reconstructed into ledger format. Cadence note: dated 1 day after the 06-25 baseline, so the sales window (Jun 12–25) is essentially unchanged; most on-site deltas read Steady. The genuinely new value this run = external signals (Pinterest official Summer-2026; mermaidcore→"Summer Siren" reversal; Vamp-Romantic acceleration), one closed action (Outtheblue aesthetic confirmed), one inventory reality (MAMC hero oversold)._
 
