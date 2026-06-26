@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canton Collective — Email Send-Time Analysis</title>
+<style>
+:root{--ink:#1a1a1a;--mut:#8a8a8a;--line:#ececec;--open:#c9a4d4;--conv:#7a9e7e;--bg:#faf8f6;--card:#fff;--accent:#b5739d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);padding:32px 20px;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto}
+h1{font-size:24px;font-weight:650;letter-spacing:-.02em}
+.sub{color:var(--mut);font-size:13px;margin-top:4px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:22px;font-weight:650}.kpi .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+.card h2{font-size:15px;font-weight:620;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:7px 8px;border-bottom:1px solid #f5f3f1;vertical-align:middle}
+.lab{font-weight:600;white-space:nowrap}.num{text-align:right;font-variant-numeric:tabular-nums;color:#555}
+.barcell{position:relative;min-width:140px}
+.bar{height:16px;border-radius:4px;display:inline-block;vertical-align:middle}
+.bar.open{background:var(--open)}.bar.conv{background:var(--conv)}
+.barcell span{position:absolute;right:8px;top:6px;font-size:11.5px;font-variant-numeric:tabular-nums;color:#444}
+tr.thin{opacity:.5}
+.rec{background:linear-gradient(135deg,#2d2240,#43314f);color:#fff;border:none}
+.rec h2{color:#fff}.rec p{font-size:13.5px;color:#e8def0;margin:6px 0}
+.rec .big{font-size:19px;font-weight:650;color:#fff;margin:10px 0 4px}
+.pill{display:inline-block;background:rgba(255,255,255,.15);border-radius:20px;padding:3px 11px;font-size:12px;margin:3px 4px 0 0}
+.note{font-size:11.5px;color:var(--mut);margin-top:10px}
+.leg{font-size:11px;color:var(--mut);margin-bottom:8px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;vertical-align:middle;margin:0 4px 0 10px}
+</style></head><body><div class="wrap">
+<h1>Email Send-Time Analysis</h1>
+<div class="sub">Canton Collective · 57 sent campaigns · trailing 12 months · times shown in recipient-local clock (your local-send setting)</div>
+<div class="kpis">
+<div class="kpi"><div class="v">134,678</div><div class="l">Recipients</div></div>
+<div class="kpi"><div class="v">36.7%</div><div class="l">Avg open rate</div></div>
+<div class="kpi"><div class="v">0.07%</div><div class="l">Avg conv rate</div></div>
+<div class="kpi"><div class="v">$11,472</div><div class="l">Attributed rev</div></div>
+</div>
+<div class="card"><h2>By send hour (local)</h2>
+<div class="leg"><span class="dot" style="background:var(--open)"></span>Open rate<span class="dot" style="background:var(--conv)"></span>Conversion rate</div>
+<table><tr><th>Hour</th><th class="num">Campaigns</th><th class="num">Recipients</th><th>Open rate</th><th>Conv rate</th><th class="num">Rev/recip</th></tr>
+<tr class="thin"><td class="lab">6 AM *</td>
+        <td class="num">1</td><td class="num">509</td>
+        <td class="barcell"><div class="bar open" style="width:84%"></div><span>34.0%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:89%"></div><span>0.20%</span></td>
+        <td class="num">$0.33</td></tr><tr class=""><td class="lab">9:30 AM</td>
+        <td class="num">39</td><td class="num">103,013</td>
+        <td class="barcell"><div class="bar open" style="width:91%"></div><span>36.5%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:26%"></div><span>0.06%</span></td>
+        <td class="num">$0.07</td></tr><tr class=""><td class="lab">10 AM</td>
+        <td class="num">7</td><td class="num">15,673</td>
+        <td class="barcell"><div class="bar open" style="width:100%"></div><span>40.3%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:43%"></div><span>0.10%</span></td>
+        <td class="num">$0.12</td></tr><tr class="thin"><td class="lab">12 PM *</td>
+        <td class="num">1</td><td class="num">130</td>
+        <td class="barcell"><div class="bar open" style="width:65%"></div><span>26.2%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:0%"></div><span>0.00%</span></td>
+        <td class="num">$0.00</td></tr><tr class=""><td class="lab">1 PM</td>
+        <td class="num">4</td><td class="num">8,649</td>
+        <td class="barcell"><div class="bar open" style="width:83%"></div><span>33.6%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:37%"></div><span>0.08%</span></td>
+        <td class="num">$0.13</td></tr><tr class=""><td class="lab">2 PM</td>
+        <td class="num">1</td><td class="num">2,420</td>
+        <td class="barcell"><div class="bar open" style="width:82%"></div><span>33.2%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:19%"></div><span>0.04%</span></td>
+        <td class="num">$0.03</td></tr><tr class=""><td class="lab">4 PM</td>
+        <td class="num">3</td><td class="num">1,813</td>
+        <td class="barcell"><div class="bar open" style="width:96%"></div><span>38.8%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:100%"></div><span>0.22%</span></td>
+        <td class="num">$0.29</td></tr><tr class=""><td class="lab">9 PM</td>
+        <td class="num">1</td><td class="num">2,471</td>
+        <td class="barcell"><div class="bar open" style="width:83%"></div><span>33.5%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:37%"></div><span>0.08%</span></td>
+        <td class="num">$0.05</td></tr></table>
+<div class="note">* faint rows = under 1,500 recipients (one small send), treat as noise.</div></div>
+<div class="card"><h2>By day of week (local)</h2>
+<table><tr><th>Day</th><th class="num">Campaigns</th><th class="num">Recipients</th><th>Open rate</th><th>Conv rate</th><th class="num">Rev/recip</th></tr>
+<tr class=""><td class="lab">Mon</td>
+        <td class="num">9</td><td class="num">29,149</td>
+        <td class="barcell"><div class="bar open" style="width:62%"></div><span>38.2%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:20%"></div><span>0.04%</span></td>
+        <td class="num">$0.07</td></tr><tr class=""><td class="lab">Tue</td>
+        <td class="num">5</td><td class="num">17,632</td>
+        <td class="barcell"><div class="bar open" style="width:55%"></div><span>34.0%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:21%"></div><span>0.05%</span></td>
+        <td class="num">$0.06</td></tr><tr class=""><td class="lab">Wed</td>
+        <td class="num">11</td><td class="num">16,996</td>
+        <td class="barcell"><div class="bar open" style="width:56%"></div><span>34.5%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:51%"></div><span>0.11%</span></td>
+        <td class="num">$0.12</td></tr><tr class=""><td class="lab">Thu</td>
+        <td class="num">9</td><td class="num">19,746</td>
+        <td class="barcell"><div class="bar open" style="width:64%"></div><span>39.0%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:28%"></div><span>0.06%</span></td>
+        <td class="num">$0.09</td></tr><tr class=""><td class="lab">Fri</td>
+        <td class="num">12</td><td class="num">26,182</td>
+        <td class="barcell"><div class="bar open" style="width:58%"></div><span>35.5%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:35%"></div><span>0.08%</span></td>
+        <td class="num">$0.09</td></tr><tr class=""><td class="lab">Sat</td>
+        <td class="num">10</td><td class="num">24,517</td>
+        <td class="barcell"><div class="bar open" style="width:60%"></div><span>37.1%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:32%"></div><span>0.07%</span></td>
+        <td class="num">$0.08</td></tr><tr class="thin"><td class="lab">Sun *</td>
+        <td class="num">1</td><td class="num">456</td>
+        <td class="barcell"><div class="bar open" style="width:100%"></div><span>61.4%</span></td>
+        <td class="barcell"><div class="bar conv" style="width:100%"></div><span>0.22%</span></td>
+        <td class="num">$0.35</td></tr></table>
+<div class="note">* Sunday = a single 456-person send; ignore.</div></div>
+<div class="card rec"><h2>Recommendation</h2>
+<p class="big">Send Thursday or Wednesday at 10:00 AM (recipient-local)</p>
+<p><span class="pill">Best opens → 10 AM &amp; Thu</span><span class="pill">Best conversion → ~4 PM &amp; Wed</span></p>
+<p style="margin-top:12px">Highest <b>open rate</b> lands at <b>10 AM (40.3%)</b> vs your usual 9:30 AM (36.5%), and <b>Thursday</b> is your strongest weekday for opens (39.0%). Highest <b>intent to convert</b> shows up in the <b>afternoon (~4 PM, 0.22% &amp; $0.29/recipient)</b> and on <b>Wednesday</b> (your best-sampled high-conversion day).</p>
+<p class="note" style="color:#cbb8d6">Caveat: ~70% of your sends go at 9:30 AM, so hour effects are tangled with which brand dropped and the season. The afternoon and 10 AM edges look real but thin — worth locking in with a clean A/B (9:30 AM vs 10 AM, and one 4 PM test) before treating as gospel.</p>
+</div>
+<div class="sub" style="margin-top:18px">Source: Klaviyo campaign report (Placed Order conversions) · Shopify store verified: Canton Collective</div>
+</div></body></html>

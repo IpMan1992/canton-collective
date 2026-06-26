@@ -1,0 +1,10 @@
+# Local editor / vault state
+.obsidian/
+
+# Build intermediates
+color_b64.txt
+xlsx_base64.txt
+
+# OS junk
+Thumbs.db
+.DS_Store
