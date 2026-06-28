@@ -2,13 +2,13 @@
 
 Shared blackboard. Each agent updates its slice; the Coordinator reads the whole. Current truth, not history.
 
-_Last updated: 2026-06-22 by store-manager (week Jun 15–21)_
+_Last updated: 2026-06-28 by store-manager (week Jun 22–28)_
 
 ## Headlines (Store Manager)
-- GMV vs trailing 4-wk: $13,916.50, −11.2% → **WORSE** (−7.7% WoW; YoY −37.2%). · Funnel bottleneck: browse→cart conversion stays depressed (CVR 0.56→0.44→0.42% over 3 wks); traffic flat ~26K. · AOV trend: slipped off peak $108 → $106.56 after climbing all of May–early June.
+- GMV vs trailing 4-wk: $19,353.59, +27.8% → **BETTER** (+39.1% WoW; YoY −12.3%). Best week in trailing-8. · Driver: co-equal traffic surge (+21%, sessions ~31.5K) + conversion recovery (+20%, CVR 0.42→0.51%) — the 3-week browse→cart leak eased across the WHOLE funnel (cart-add 3.57→3.76%, reach-checkout 1.06→1.17%, completion 0.42→0.51%). · AOV a mild drag: $106.56 → $101.75 (orders +44%, slightly lower ticket). · Watch: confirm conversion recovery holds vs one-week spike.
 
 ## Vendor share (Store Manager) — the primary lens
-- Gaining: **MAMC 22.3%→39.0% (+16.7pp) — now #1 vendor for the first time**, broad across ~12 SKUs. · Ceding: **1Jinn Studio 35.5%→25.7% (−9.8pp), loses #1**; Outtheblue 6.6%→0.8% (−5.8pp, spike faded); Deleteex −2.4pp. · ±3pp moves: MAMC +16.7, 1Jinn −9.8, Outtheblue −5.8.
+- Gaining: **MAMC 39.0%→44.1% (+5.1pp) — runaway #1**, supplies all top-3 heroes incl. NEW #1 Dreamy Underwater Garden Slip Maxi ($1,528); ~12 SKUs. · Recovering: Outtheblue 0.8%→3.7% (+2.9pp, validates trend cat-novelty call). · Ceding: **2th Desire 12.4%→6.0% (−6.4pp) — collapses**, only Retro Camisole Layer Top holding; 1Jinn Studio 25.7%→24.7% (−1.0pp). · ±3pp flags: MAMC +5.1, 2th Desire −6.4.
 
 ## Trends in play (Trend) — per label
 _Updated 2026-06-26 by trend (bi-weekly validation pass; clean 14d Jun12–26 vs prior 14d). MAMC takeover confirmed structural._
