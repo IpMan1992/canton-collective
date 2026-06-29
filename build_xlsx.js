@@ -2,8 +2,8 @@ const fs = require('fs');
 const zlib = require('zlib');
 
 /* ===================== DATA ===================== */
-const wkTot = {0:12555.04,1:16016.78,2:13905.39,3:17663.96,4:15074.88,5:13916.50};
-const weekName = ["May 11–17","May 18–24","May 25–31","Jun 1–7","Jun 8–14","Jun 15–21"];
+const wkTot = {0:12555.04,1:16016.78,2:13905.39,3:17663.96,4:15074.88,5:13916.50,6:19353.59};
+const weekName = ["May 11–17","May 18–24","May 25–31","Jun 1–7","Jun 8–14","Jun 15–21","Jun 22–28"];
 
 const kpi = [ // week, GMV, Orders, AOV, Sessions, CVR, WoW, vs4wk, YoY, Verdict
  ["May 11–17",12555.04,139,94.58,20391,"0.55%","-4.9%","-36.6%","+221%","WORSE"],
@@ -12,6 +12,7 @@ const kpi = [ // week, GMV, Orders, AOV, Sessions, CVR, WoW, vs4wk, YoY, Verdict
  ["Jun 1–7",17663.96,163,105.71,26887,"0.56%","+27.0%","+26.9%","-4.8%","BETTER"],
  ["Jun 8–14",15074.88,133,108.00,25874,"0.44%","-14.7%","+0.3%","-17.2%","FLAT"],
  ["Jun 15–21",13916.50,128,106.56,25933,"0.42%","-7.7%","-11.2%","-37.2%","WORSE"],
+ ["Jun 22–28",19353.59,184,101.75,31496,"0.51%","+39.1%","+27.8%","-12.3%","BETTER"],
 ];
 const decomp = [ // transition, sess, cvr, aov, orders, gmv, driver
  ["May 04 → May 11","-18.8%","-4.8%","+12.3%","-12.0%","-4.9%","Traffic collapse, cushioned by AOV"],
@@ -20,6 +21,7 @@ const decomp = [ // transition, sess, cvr, aov, orders, gmv, driver
  ["May 25 → Jun 01","+6.6%","+17.2%","+5.9%","+16.4%","+27.0%","Broad-based: all three positive"],
  ["Jun 01 → Jun 08","-3.8%","-21.7%","+2.2%","-18.4%","-14.7%","CONVERSION collapse (browse→cart)"],
  ["Jun 08 → Jun 15","+0.2%","-2.9%","-1.3%","-3.8%","-7.7%","Conversion stays soft + AOV slips off peak (traffic flat)"],
+ ["Jun 15 → Jun 22","+21.5%","+19.8%","-4.5%","+43.8%","+39.1%","Traffic surge + CONVERSION recovery (browse→cart leak eases)"],
 ];
 const funnel = [ // week, sess, cart, reached, completed, cvr, disc, ret
  ["May 11–17",20391,854,285,113,"0.55%",-2427.49,-1771.11],
@@ -28,6 +30,7 @@ const funnel = [ // week, sess, cart, reached, completed, cvr, disc, ret
  ["Jun 1–7",26887,1042,327,150,"0.56%",-1822.65,-1016.10],
  ["Jun 8–14",25874,869,289,113,"0.44%",-2177.46,-428.99],
  ["Jun 15–21",25933,925,275,110,"0.42%",-1498.37,-561.62],
+ ["Jun 22–28",31496,1184,367,160,"0.51%",-2645.97,-625.34],
 ];
 const traffic = [ // week, direct$, directOrd, social$, socialOrd, search$, searchOrd
  ["May 11–17",7998.46,89,3369.02,39,1187.56,11],
@@ -36,28 +39,31 @@ const traffic = [ // week, direct$, directOrd, social$, socialOrd, search$, sear
  ["Jun 1–7",11588.80,104,3483.83,33,2591.33,26],
  ["Jun 8–14",9522.26,82,3767.02,35,1785.60,16],
  ["Jun 15–21",9299.36,78,2901.45,33,1715.69,17],
+ ["Jun 22–28",11873.51,109,4334.89,45,3145.19,30],
 ];
-const vendors = [ // name + $ by week index 0..5
- ["1Jinn Studio",5818.08,5860.65,5007.61,5554.53,5355.42,3572.62],
- ["MAMC",0,1569.91,3438.04,3805.37,3354.41,5424.71],
- ["2th Desire",2270.44,2595.74,1504.74,3642.84,1985.62,1725.62],
- ["Deleteex",2277.37,2930.20,1937.97,2211.05,2078.62,1590.93],
- ["First Floor",589.39,804.79,1095.43,804.64,459.99,555.49],
- ["Outtheblue",0,0,0,79.00,989.58,109.97],
- ["1Jinn M2M",212.84,595.88,94.90,241.03,55.16,198.03],
- ["(blank = shipping)",1310.42,1640.01,846.30,1254.60,740.08,725.20],
+const vendors = [ // name + $ by week index 0..6
+ ["1Jinn Studio",5818.08,5860.65,5007.61,5554.53,5355.42,3572.62,4778.88],
+ ["MAMC",0,1569.91,3438.04,3805.37,3354.41,5424.71,8536.78],
+ ["2th Desire",2270.44,2595.74,1504.74,3642.84,1985.62,1725.62,1170.45],
+ ["Deleteex",2277.37,2930.20,1937.97,2211.05,2078.62,1590.93,2223.69],
+ ["First Floor",589.39,804.79,1095.43,804.64,459.99,555.49,715.57],
+ ["Outtheblue",0,0,0,79.00,989.58,109.97,712.64],
+ ["1Jinn M2M",212.84,595.88,94.90,241.03,55.16,198.03,196.60],
+ ["(blank = shipping)",1310.42,1640.01,846.30,1254.60,740.08,725.20,1018.98],
 ];
-const products = [ // name + GMV by week (idx 0..5) + trend at [7]
- ["Lavender Floral Chiffon Slip Mini Dress (MAMC)",0,512.05,1201.20,1197.35,771.16,847.43,"CLIMBER / hero"],
- ["Dusty Rose Layered Gauze Bandeau Top (MAMC)",0,0,0,0,0,737.11,"NEW CLIMBER"],
- ["Green Fold Over Asymmetric Hem Midi Skirt (MAMC)",0,0,391.00,326.40,397.63,607.41,"CLIMBER"],
- ["Ruffle Trim Gingham Babydoll Mini Dress (MAMC)",0,0,295.63,0,432.67,159.80,"Emerging"],
- ["Retro Camisole Layer Top (2th Desire)",803.61,344.34,276.58,693.66,547.90,397.29,"Volatile core"],
- ["Y2K Beaded Multi Strap Top",522.69,616.46,321.20,331.17,594.51,460.85,"Core, oscillating"],
- ["Shell Buttons Front Puff Sleeve Shirt",705.29,567.11,361.65,0,458.22,281.07,"Soft core"],
- ["Midnight Meow Zip Up Cat Ear Hoodie",422.96,569.26,580.26,530.75,431.75,156.74,"Fading"],
- ["Metal Flower Pleated Strapless Mini Dress",0,549.09,540.65,0,0,0,"DECLINING (gone)"],
- ["Polka Dot Stripe Henley Tank 3pc Set",761.92,507.99,464.84,464.84,339.01,0,"DECLINING (gone)"],
+const products = [ // name + GMV by week (idx 0..6) + trend at [8]
+ ["Dreamy Underwater Garden Slip Maxi Dress (MAMC)",0,0,0,0,0,0,1527.75,"NEW #1 hero"],
+ ["Dusty Rose Layered Gauze Bandeau Top (MAMC)",0,0,0,0,0,737.11,1471.06,"CLIMBER → hero (broad)"],
+ ["Lavender Floral Chiffon Slip Mini Dress (MAMC)",0,512.05,1201.20,1197.35,771.16,847.43,987.30,"Hero (holding)"],
+ ["Polka Dot Stripe Henley Tank 3pc Set (1Jinn)",761.92,507.99,464.84,464.84,339.01,0,511.33,"Rebounded"],
+ ["Y2K Beaded Multi Strap Top (1Jinn)",522.69,616.46,321.20,331.17,594.51,460.85,498.76,"Core, oscillating"],
+ ["Shell Buttons Front Puff Sleeve Shirt (Deleteex)",705.29,567.11,361.65,0,458.22,281.07,396.59,"Soft core"],
+ ["Retro Camisole Layer Top (2th Desire)",803.61,344.34,276.58,693.66,547.90,397.29,366.30,"2TH lone holdout"],
+ ["Green Fold Over Asymmetric Hem Midi Skirt (MAMC)",0,0,391.00,326.40,397.63,607.41,291.22,"Cooling"],
+ ["Metal Flower Pleated Strapless Mini Dress (1Jinn)",0,549.09,540.65,0,0,0,278.49,"Rebounded"],
+ ["Midnight Meow Zip Up Cat Ear Hoodie (1Jinn)",422.96,569.26,580.26,530.75,431.75,156.74,225.50,"Fading"],
+ ["Ruffle Trim Gingham Babydoll Mini Dress (MAMC)",0,0,295.63,0,432.67,159.80,0,"Quiet this wk"],
+ ["Outtheblue line (vendor total)",0,0,0,79.00,989.58,109.97,712.64,"Recovered (+2.9pp)"],
 ];
 const email = [ // wkIdx, date, campaign, theme, recip, open, rev, conv
  [0,"May 13","0513 CC new drop","New drop",91,"39.6%",71.00,1],
@@ -67,6 +73,7 @@ const email = [ // wkIdx, date, campaign, theme, recip, open, rev, conv
  [4,"Jun 10","0610 Outthe Blue vol.2","Outtheblue",536,"62.1%",258.22,1],
  [4,"Jun 13","0613 MAMC","MAMC",536,"59.6%",316.70,1],
  [5,"Jun 17","0617 2th Desire","2th Desire",552,"61.5%",75.00,1],
+ [6,"Jun 23","0623 Delete-Ex","Delete-Ex",626,"60.2%",133.00,1],
 ];
 const yoy = [
  ["May 11–17",12555.04,"wk of May 12 2025",3909.81,23,"+221%"],
@@ -75,6 +82,7 @@ const yoy = [
  ["Jun 1–7",17663.96,"wk of Jun 02 2025",18559.83,195,"-4.8%"],
  ["Jun 8–14",15074.88,"wk of Jun 09 2025",18199.18,171,"-17.2%"],
  ["Jun 15–21",13916.50,"wk of Jun 16 2025",22144.84,214,"-37.2%"],
+ ["Jun 22–28",19353.59,"wk of Jun 23 2025",22070.41,195,"-12.3%"],
 ];
 
 function sharePct(v,i){ return v>0 ? (100*v/wkTot[i]).toFixed(1)+"%" : "—"; }
@@ -98,32 +106,32 @@ function monthBlocks(idxs){
   blocks.push({title:"Vendor GMV ($)", headers:["Vendor",...idxs.map(i=>weekName[i])],
     rows: vendors.map(v=>[v[0],...idxs.map(i=> v[i+1])])});
   blocks.push({title:"Top products — GMV by week", headers:["Product",...idxs.map(i=>weekName[i]),"Trend"],
-    rows: products.map(p=>[p[0],...idxs.map(i=>p[i+1]),p[7]])});
+    rows: products.map(p=>[p[0],...idxs.map(i=>p[i+1]),p[8]])});
   blocks.push({title:"Email campaigns (Klaviyo)", headers:["Send Date","Campaign","Theme","Recipients","Open Rate","Attributed Rev","Conv"],
     rows: email.filter(e=>idxs.includes(e[0])).map(e=>e.slice(1))});
   return blocks;
 }
 
 const summaryBlocks=[
- {title:"Canton Collective — Weekly Performance · May 11 – Jun 21, 2026 (GMV = total_sales)", headers:null, rows:[]},
- {title:"KPIs — all 6 weeks", headers:["Week","GMV","Orders","AOV","Sessions","Conv Rate","WoW GMV","vs 4-wk Avg","YoY GMV","Verdict"], rows:kpi},
+ {title:"Canton Collective — Weekly Performance · May 11 – Jun 28, 2026 (GMV = total_sales)", headers:null, rows:[]},
+ {title:"KPIs — all 7 weeks", headers:["Week","GMV","Orders","AOV","Sessions","Conv Rate","WoW GMV","vs 4-wk Avg","YoY GMV","Verdict"], rows:kpi},
  {title:"Key findings", headers:["#","Finding"], rows:[
-   [1,"HEADLINE (Jun 15–21): MAMC overtakes 1Jinn Studio as #1 vendor for the first time — 39.0% vs 25.7% (MAMC +16.7pp WoW, 1Jinn −9.8pp)."],
-   [2,"Verdict WORSE: GMV $13,916.50, −7.7% WoW, −11.2% vs trailing 4-wk avg."],
-   [3,"Conversion stays soft: CVR 0.56→0.44→0.42% over 3 weeks; browse→cart leak persists. Traffic flat (~26K sessions)."],
-   [4,"AOV slipped off its peak: $108.00 → $106.56 after climbing every week May–early June."],
-   [5,"MAMC win is broad (12 SKUs selling): Lavender Floral hero $847, NEW climber Dusty Rose Bandeau $737, Green Fold Over Skirt $607."],
-   [6,"1Jinn Studio ceding share 46% → 26% since mid-May; Outtheblue spiked then faded (6.6% → 0.8%)."],
-   [7,"Email underutilized: 1 send this week (0617 2th Desire) $75 / 1 conv at 61.5% open; 7 campaigns ~$819 attributed total."],
-   [8,"Blind spot: Meta CC ad account (SGD) UNSETTLED / not queryable — paid-social spend unverified."],
-   [9,"YoY −37.2% vs Jun 2025 (214 orders @ $97 last year vs 128 @ $107 now) — June 2025 already scaled."],
+   [1,"HEADLINE (Jun 22–28): Breakout week — GMV $19,353.59, +39.1% WoW and +27.8% vs 4-wk avg (BETTER), best in trailing-8."],
+   [2,"MAMC pulls away to 44.1% share (+5.1pp) — runaway #1, supplies all top-3 heroes incl. NEW #1 Dreamy Underwater Garden Slip Maxi ($1,528)."],
+   [3,"2th Desire collapses −6.4pp to 6.0% (only Retro Camisole Layer Top holding); Outtheblue recovers 0.8%→3.7% (+2.9pp)."],
+   [4,"Driver: traffic surge (+21%, ~31.5K sessions) AND conversion recovery (+20%, CVR 0.42→0.51%) — the 3-week browse→cart leak eased across the whole funnel."],
+   [5,"Full-funnel recovery: cart-add 3.57→3.76%, reach-checkout 1.06→1.17%, completion 0.42→0.51%."],
+   [6,"AOV a mild drag: $106.56 → $101.75 as orders jumped +44% (184 orders)."],
+   [7,"Email underutilized: 1 send this week (0623 Delete-Ex) $133 / 1 conv at 60.2% open; 8 campaigns ~$952 attributed total (email ≈0.7% of GMV) — and pushing a small vendor, not MAMC."],
+   [8,"Blind spot: Meta CC ad account (SGD) UNSETTLED / not queryable — cannot confirm if the traffic surge was paid-driven."],
+   [9,"YoY −12.3% vs Jun 2025 (195 orders @ ~$111 last year vs 184 @ $102 now) — gap narrowing sharply from −37% last week."],
  ]},
 ];
 
 const sheets=[
  {name:"Summary", cols:[34,12,9,9,11,11,11,12,11,17], blocks:summaryBlocks},
  {name:"May 2026", cols:[40,13,9,13,9,13,9,13,9,13], blocks:monthBlocks([0,1,2])},
- {name:"June 2026", cols:[40,15,9,15,9,13,9], blocks:monthBlocks([3,4,5])},
+ {name:"June 2026", cols:[40,15,9,15,9,13,9,13], blocks:monthBlocks([3,4,5,6])},
  {name:"YoY", cols:[14,13,20,13,13,10], blocks:[{title:"Year-over-year vs 2025", headers:["2026 Week","2026 GMV","2025 Matched Week","2025 GMV","2025 Orders","YoY Δ"], rows:yoy}]},
 ];
 

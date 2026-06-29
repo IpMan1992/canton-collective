@@ -28,7 +28,7 @@ const BUILDERS = ["build_report.js", "build_xlsx.js", "build_colored.js"];
 // Artifacts each builder is expected to write, with a quick validity check.
 const ARTIFACTS = [
   { file: "Canton_Collective_Weekly_Dashboard.html", kind: "html" },
-  { file: "Canton_Collective_Weekly_Report_May11-Jun21_2026.xls", kind: "xml" },
+  { file: "Canton_Collective_Weekly_Report_May11-Jun28_2026.xls", kind: "xml" },
   { file: "Canton_Collective_Weekly_Report.csv", kind: "text" },
   { file: "Canton_Collective_Weekly_Report.xlsx", kind: "zip" },
   { file: "Canton_Collective_Weekly_Performance_COLOR.xlsx", kind: "zip" },
