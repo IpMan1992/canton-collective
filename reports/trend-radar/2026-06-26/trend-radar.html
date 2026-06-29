@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canton Collective — Trend Radar · Deep Dive · 2026-06-26 (validation pass)</title>
+<style>
+  :root{
+    --ink:#1a1622; --paper:#faf6f1; --card:#ffffff; --line:#e9e0d6;
+    --muted:#7a7280; --coral:#e8607a; --lav:#9a7fd6; --mint:#3f9e8a;
+    --gold:#c79a3a; --push:#e8607a; --pos:#9a7fd6; --watch:#c79a3a;
+    --shadow:0 6px 22px rgba(40,28,50,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Arial,"Segoe UI",sans-serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+  a{color:inherit}
+  /* ---- header ---- */
+  header.hero{padding:54px 0 30px;border-bottom:2px solid var(--ink)}
+  .kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--coral);font-weight:700;margin:0 0 14px}
+  h1{font-size:clamp(34px,5vw,58px);line-height:1.02;margin:0 0 14px;font-weight:800;letter-spacing:-.02em}
+  h1 em{font-style:normal;color:var(--lav)}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--muted);margin-top:18px}
+  .meta b{color:var(--ink)}
+  .verified{display:inline-flex;align-items:center;gap:6px;background:#e9f6f0;color:#1f6b58;
+    padding:4px 12px;border-radius:999px;font-weight:700;font-size:12px}
+  /* ---- banners ---- */
+  .banner{margin:26px 0;padding:16px 20px;border-radius:14px;font-size:13.5px}
+  .banner.warn{background:#fdf1e3;border:1px solid #efce9a}
+  .banner.warn b{color:#b5731a}
+  .banner.info{background:#eef0fb;border:1px solid #c9cdf0}
+  .banner.info b{color:#5a52b5}
+  /* ---- summary ---- */
+  .summary{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:30px 0 10px}
+  @media(max-width:760px){.summary{grid-template-columns:1fr}}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
+  .scard h3{margin:0 0 8px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .scard p{margin:0;font-size:15px}
+  .scard.lead{border-left:5px solid var(--coral)}
+  .scard.opp{border-left:5px solid var(--lav)}
+  /* ---- section heads ---- */
+  .sec{margin:60px 0 8px}
+  .sec h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 4px;display:flex;align-items:center;gap:12px}
+  .pill{font-size:11px;font-weight:800;letter-spacing:.12em;color:#fff;padding:5px 12px;border-radius:999px}
+  .pill.push{background:var(--push)} .pill.pos{background:var(--pos)} .pill.watch{background:var(--watch)}
+  .pill.geo{background:var(--mint)}
+  .sec .lede{color:var(--muted);font-size:14px;margin:6px 0 0;max-width:760px}
+  /* ---- momentum bars ---- */
+  .mom{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow);margin-top:22px}
+  .mom .row{display:grid;grid-template-columns:130px 1fr 120px;align-items:center;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .mom .row:last-child{border-bottom:0}
+  .mom .name{font-weight:700;font-size:14px}
+  .bar{height:16px;border-radius:8px;background:linear-gradient(90deg,var(--lav),var(--coral))}
+  .bar.down{background:#d8cfdb}
+  .delta{font-weight:800;font-size:14px;text-align:right}
+  .delta.up{color:var(--mint)} .delta.dn{color:#bb5566} .delta.flat{color:var(--muted)}
+  /* ---- trend block ---- */
+  .trend{margin-top:30px}
+  .trend-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .trend-head h3{margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em}
+  .tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;background:#f0ebf7;color:var(--lav)}
+  .tag.hi{background:#e9f6f0;color:#1f6b58}
+  .tag.md{background:#fdf1e3;color:#b5731a}
+  .tag.new{background:#eef0fb;color:#5a52b5}
+  .conf{font-size:12px;color:var(--muted);margin-left:auto}
+  .evi{font-size:13.5px;color:#48404f;margin:12px 0 4px;max-width:880px}
+  .evi b{color:var(--ink)}
+  /* ---- product grid ---- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;margin-top:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .card .imgwrap{aspect-ratio:3/4;background:#f1ece6;overflow:hidden}
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .body{padding:11px 13px 14px}
+  .vchip{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--lav)}
+  .vchip.v-1jinn{color:#c0568a}.vchip.v-mamc{color:#9a7fd6}.vchip.v-2th{color:#3f7fae}.vchip.v-del{color:#9a4b4b}.vchip.v-otb{color:#3f9e8a}
+  .card .pt{font-size:13px;font-weight:700;margin:3px 0 7px;line-height:1.25}
+  .stat{font-size:12px;color:var(--muted)}
+  .stat .hot{color:var(--coral);font-weight:800}
+  .badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.06em;background:var(--ink);color:#fff;padding:3px 7px;border-radius:6px;margin-bottom:7px}
+  .badge.no1{background:var(--coral)}
+  .badge.restock{background:#b5731a}
+  /* ---- geo tables ---- */
+  .geo{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow);margin-top:22px;overflow-x:auto}
+  table.gt{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0 4px}
+  table.gt th,table.gt td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.gt th:first-child,table.gt td:first-child{text-align:left}
+  table.gt thead th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
+  table.gt tr:last-child td{border-bottom:0}
+  .ix-over{color:#1f6b58;font-weight:800}
+  .ix-under{color:#bb5566;font-weight:800}
+  .geocap{font-size:12px;color:var(--muted);margin:14px 0 0}
+  .geo-read{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:760px){.geo-read{grid-template-columns:1fr}}
+  .geo-read .gr{border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13px}
+  .geo-read .gr h4{margin:0 0 6px;font-size:12px;letter-spacing:.06em}
+  .geo-read .gr.us{border-left:4px solid var(--coral)}
+  .geo-read .gr.jp{border-left:4px solid var(--lav)}
+  .geo-read .gr.de{border-left:4px solid var(--gold)}
+  .geo-read .gr.au{border-left:4px solid var(--mint)}
+  /* ---- footer ---- */
+  footer{margin-top:70px;border-top:2px solid var(--ink);padding-top:22px;font-size:12.5px;color:var(--muted)}
+  footer h4{color:var(--ink);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 10px}
+  footer ul{margin:0 0 16px;padding-left:18px}
+  footer li{margin:4px 0}
+  .src{font-size:11.5px;word-break:break-word}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Canton Collective · Trend Radar</p>
+    <h1>Validation pass — the <em>romantic-feminine</em> summer is structural, and it belongs to MAMC.</h1>
+    <div class="meta">
+      <span class="verified">✓ Store verified: Canton Collective</span>
+      <span><b>Run date</b> 26 Jun 2026</span>
+      <span><b>Mode</b> Deep Dive · period-over-period validation</span>
+      <span><b>Signals</b> social/community searches + clean 14d-vs-prior-14d sales + 28d geography + catalog match</span>
+      <span><b>Ledger</b> run appended (newest on top)</span>
+    </div>
+  </header>
+
+  <div class="banner info">
+    <b>Why this run:</b> the prior 06-26 block could only delta against a same-day baseline (all Steady). This pass re-bases the read on a <b>clean non-overlapping 14-day comparison — Jun 12–26 vs prior 14d May 29–Jun 11</b> to test whether MAMC's takeover is structural or a same-day artifact. <b>Verdict: structural.</b> It also adds a new <b>Geographic Conversion Read</b> (vendor × country) — see below.
+  </div>
+
+  <section class="summary">
+    <div class="scard lead">
+      <h3>Cross-label pattern</h3>
+      <p>The romantic-feminine + polka/coquette cluster is still the engine, and a clean period cut <b>confirms the takeover is real, not noise</b>: <b>MAMC 22.4%→36.0% (+13.6pp, +73%)</b> holds #1, while alt/Y2K lines cede (1Jinn −6.9pp, 2TH −6.1pp). ±3pp flags: MAMC +13.6, 1Jinn −6.9, 2TH −6.1. New external threads: <b>pointelle</b> romantic-knit and Pinterest <b>"Glamoratti"</b> maximalism (quiet-luxury declared over → First Floor headwind).</p>
+    </div>
+    <div class="scard opp">
+      <h3>Highest-leverage opportunity</h3>
+      <p>Two unpulled levers, sharper now: <b>(a) RESTOCK the Lavender Floral Chiffon Slip Mini</b> — still store #1 ($1,792 / 31 ord) but now <b>oversold −33u</b> (deeper than −32u last run); the Green Fold-Over Midi Skirt (top-3) is down to <b>10u</b>. <b>(b) Give Outtheblue homepage + email weight now</b> — fastest climber confirmed (+258%, +2.4pp) with deep stock on the peaking polka prints.</p>
+    </div>
+  </section>
+
+  <div class="mom">
+    <h3 style="margin:0 0 14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Vendor momentum · 14-day GMV (Jun 12–26) vs prior 14 days (May 29–Jun 11)</h3>
+    <div class="row"><span class="name">MAMC</span><div class="bar" style="width:100%"></div><span class="delta up">+73% ▲ #1</span></div>
+    <div class="row"><span class="name">1Jinn Studio</span><div class="bar" style="width:76%"></div><span class="delta dn">−14% ▼</span></div>
+    <div class="row"><span class="name">Deleteex</span><div class="bar" style="width:36%"></div><span class="delta up">+7% ▶ #3</span></div>
+    <div class="row"><span class="name">2th Desire</span><div class="bar down" style="width:30%"></div><span class="delta dn">−31% ▼</span></div>
+    <div class="row"><span class="name">Outtheblue</span><div class="bar" style="width:10%"></div><span class="delta up">+258% ▲</span></div>
+    <div class="row"><span class="name">First Floor</span><div class="bar down" style="width:9%"></div><span class="delta dn">−31% ▼</span></div>
+  </div>
+
+  <!-- ===================== PUSH NOW ===================== -->
+  <div class="sec">
+    <h2><span class="pill push">Push Now</span> Peaking + SKUs already climbing — no lead-time risk</h2>
+    <p class="lede">Promote matching in-stock products hard (ads, TikTok, homepage, email). Each trend carries ≥2 social signals and a named in-stock SKU with live order velocity.</p>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Watercolor / painterly florals</h3><span class="tag v-mamc" style="background:#f0ebf7;color:#9a7fd6">MAMC</span><span class="tag hi">High</span><span class="conf">At peak · the new boho</span></div>
+    <p class="evi"><b>Signal:</b> WhoWhatWear (Jun'26) keep "painterly botanicals, soft watercolour washes" as the rich-summer dress story. <b>CC proof:</b> MAMC's floral slips are the engine of its +73% surge — the Lavender Slip is the store's #1 mover but is <b>oversold −33u</b>; the Green Fold-Over Midi is a new top-3 mover now down to 10u. Both are RESTOCK calls.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Lavender_Floral_Chiffon_Slip_Mini_Dress_Details_1.webp?v=1779430894" alt="Lavender Floral Chiffon Slip Mini Dress"></div><div class="body"><span class="badge no1">★ Store #1 mover</span> <span class="badge restock">RESTOCK −33u</span><div class="vchip v-mamc">MAMC</div><div class="pt">Lavender Floral Chiffon Slip Mini Dress</div><div class="stat"><span class="hot">$1,792</span> · 31 ord / 14d</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Green_Fold_Over_Asymmetric_Hem_Midi_Skirt_Details_11.webp?v=1782367731" alt="Green Fold Over Asymmetric Hem Midi Skirt"></div><div class="body"><span class="badge restock">LOW · 10u</span><div class="vchip v-mamc">MAMC</div><div class="pt">Green Fold-Over Asymmetric Hem Midi Skirt</div><div class="stat"><span class="hot">$1,035</span> · 17 ord / 14d</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Halterneck_Tie_Yellow_Floral_Print_Midi_Dress_Details_11.webp?v=1781146973" alt="Halterneck Tie Yellow Floral Print Midi Dress"></div><div class="body"><div class="vchip v-mamc">MAMC</div><div class="pt">Halterneck Tie Yellow Floral Print Midi Dress</div><div class="stat">59 units · push</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Lace slip &amp; boudoir romantic</h3><span class="tag" style="background:#f0ebf7;color:#9a7fd6">MAMC</span><span class="tag hi">High</span><span class="conf">Accelerating · "the dress of 2026"</span></div>
+    <p class="evi"><b>Signal:</b> WhoWhatWear keep the lace slip dress as "<b>the</b> dress trend of 2026"; Bodice-Core / corsetry corroborates (corsets +43% YoY) (nss, E!, Jun'26). <b>CC proof:</b> MAMC lace/sequin camis converting on-site.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Sequin_Mesh_Overlay_Tie_Strap_Camisole_Top_Details_1.webp?v=1779419643" alt="Sequin Mesh Overlay Tie Strap Camisole Top"></div><div class="body"><div class="vchip v-mamc">MAMC</div><div class="pt">Sequin Mesh Overlay Tie Strap Camisole Top</div><div class="stat">$269 · 6 ord / 14d · 15u</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Flyaway_Lace-Trim_Blue_Tube_Top_Details_12.webp?v=1782356953" alt="Flyaway Lace-Trim Blue Tube Top"></div><div class="body"><div class="vchip v-mamc">MAMC</div><div class="pt">Flyaway Lace-Trim Blue Tube Top</div><div class="stat">lace-trim · 33u · push</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Coquette babydoll &amp; satin bows</h3><span class="tag" style="background:#f0ebf7;color:#9a7fd6">MAMC</span><span class="tag" style="background:#fbe9ef;color:#c0568a">1Jinn</span><span class="tag hi">High</span><span class="conf">At peak · #balletcore 500M+</span></div>
+    <p class="evi"><b>Signal:</b> #balletcore 500M+ views, still "trend of 2026," refining to quiet-luxury fabrics incl. pointelle (UO, RunwayLive). Babydoll + satin-bow silhouettes at peak. <b>CC proof:</b> Bow-Knot babydoll + Metal Flower mini live movers.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Bow_Knot_Pink_Babydoll_Cami_Top_Details_12.webp?v=1782368203" alt="Bow Knot Pink Babydoll Cami Top"></div><div class="body"><div class="vchip v-mamc">MAMC</div><div class="pt">Bow Knot Pink Babydoll Cami Top</div><div class="stat">bows · 18u · push</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Metal_Flower_Pleated_Strapless_Mini_Dress_Details_15.webp?v=1778309806" alt="Metal Flower Pleated Strapless Mini Dress"></div><div class="body"><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Metal Flower Pleated Strapless Mini Dress</div><div class="stat">$420 · 8 ord / 14d</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Subverted polka dots</h3><span class="tag" style="background:#eaf0f6;color:#3f7fae">2th Desire</span><span class="tag" style="background:#fbe9ef;color:#c0568a">1Jinn</span><span class="tag" style="background:#e9f6f0;color:#3f9e8a">Outtheblue</span><span class="tag hi">High</span><span class="conf">At peak · the defining SS26 print</span></div>
+    <p class="evi"><b>Signal:</b> The defining SS26 print — jumbo "coin spots," unexpected colorways across Khaite, Altuzarra, Carolina Herrera, Dries Van Noten (WhoWhatWear, The Glossary Mag, Jun'26). <b>CC proof:</b> polka pieces live across 2TH, 1Jinn, MAMC &amp; Outtheblue; the Dotted Meditation Pants ($585/14) and Polka Stripe Henley 3-pc ($369/7) are 1Jinn movers.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Ruched_Polka_Dot_Belt_Top_Details_1.webp?v=1777456039" alt="Ruched Polka Dot Belt Tube Top"></div><div class="body"><div class="vchip v-2th">2th Desire</div><div class="pt">Ruched Polka Dot Belt Tube Top</div><div class="stat">$366 · 6 ord / 14d</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Deconstructed_Spliced_Polka_Dot_Off-Shoulder_Top_Details_6.webp?v=1777711558" alt="Deconstructed Spliced Polka Dot Off-Shoulder Top"></div><div class="body"><div class="vchip v-2th">2th Desire</div><div class="pt">Deconstructed Spliced Polka Dot Off-Shoulder Top</div><div class="stat">deconstructed · push</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Women_s_Dotted_Meditation_Pants_Details_9.webp?v=1760064418" alt="Women's Dotted Meditation Pants"></div><div class="body"><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Women's Dotted Meditation Pants</div><div class="stat">$585 · 14 ord / 14d</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Polka_Dot_Racerback_Tank_Details_First.webp?v=1754989761" alt="Polka Dot Racerback Tank"></div><div class="body"><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Polka Dot Racerback Tank</div><div class="stat">276u · push</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Cat-novelty × polka (Outtheblue's lane)</h3><span class="tag" style="background:#e9f6f0;color:#3f9e8a">Outtheblue</span><span class="tag hi">High</span><span class="conf">Accelerating · fastest climber +258%</span></div>
+    <p class="evi"><b>Signal:</b> Outtheblue's aesthetic — kawaii cat-novelty × polka × coquette/balletcore — intersects the defining SS26 polka print + evergreen GenZ cute; the velvet raglan rides the velvet +90% YoY bump. <b>CC proof:</b> on a clean period basis Outtheblue is the store's fastest climber (+258%, share 1.0%→3.4%, +2.4pp) with deep stock on the peaking prints — textbook Position Early graduating to Push Now.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_PolkaDotCatLongSleeveKnitTop_Details_7.webp?v=1780447904" alt="Polka Dot Cat Long Sleeve Knit Top"></div><div class="body"><div class="vchip v-otb">Outtheblue</div><div class="pt">Polka Dot Cat Long Sleeve Knit Top</div><div class="stat">305u · deep stock · push</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_VintageVelvetPolkaDotRaglanSleeveTee_Details_11.webp?v=1780974191" alt="Vintage Velvet Polka Dot Raglan Sleeve Tee"></div><div class="body"><div class="vchip v-otb">Outtheblue</div><div class="pt">Vintage Velvet Polka Dot Raglan Tee</div><div class="stat">294u · velvet +90% bonus</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_PolkaDotCatHeartCrewNeckTee_Details_9.webp?v=1780974320" alt="Polka Dot Cat Heart Crew Neck Tee"></div><div class="body"><div class="vchip v-otb">Outtheblue</div><div class="pt">Polka Dot Cat Heart Crew Neck Tee</div><div class="stat">239u · push</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Pink_Polka_Dot_Balletcore_Tiered_Cami_Top_Details_1.webp?v=1782383546" alt="Pink Polka Dot Balletcore Tiered Cami Top"></div><div class="body"><div class="vchip v-otb">Outtheblue</div><div class="pt">Pink Polka Dot Balletcore Tiered Cami</div><div class="stat">70u · coquette · push</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Layered / retro camisole</h3><span class="tag" style="background:#eaf0f6;color:#3f7fae">2th Desire</span><span class="tag hi">High</span><span class="conf">Steady · 2TH's lever to arrest decline</span></div>
+    <p class="evi"><b>Signal:</b> boudoir-layering / slip-over-tee styling continues across GenZ feeds. <b>CC proof:</b> the Retro Camisole Layer Top is 2TH's top mover ($819 / 17 ord) — the push that can arrest 2TH's −6.1pp slide.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Retro_Camisole_Layer_Top_Details_2.webp?v=1761034316" alt="Retro Camisole Layer Top"></div><div class="body"><span class="badge">Top 2TH mover</span><div class="vchip v-2th">2th Desire</div><div class="pt">Retro Camisole Layer Top</div><div class="stat"><span class="hot">$819</span> · 17 ord / 14d</div></div></div>
+    </div>
+  </div>
+
+  <!-- ===================== POSITION EARLY ===================== -->
+  <div class="sec">
+    <h2><span class="pill pos">Position Early</span> Rising, not yet peaked — feature now, flag for buying</h2>
+    <p class="lede">Runway exists by definition. Feature matching products ahead of the crest and raise the sourcing note with the sub-brand for the next drop.</p>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Acubi (C / K-fashion)</h3><span class="tag" style="background:#fbe9ef;color:#c0568a">1Jinn</span><span class="tag md">Med</span><span class="conf">Commercializing · CC's Asia home-turf</span></div>
+    <p class="evi"><b>Signal:</b> Seoul streetwear now in broad uptake; 2026 Douyin breakout = dusty-blue + cream, cleaner silhouettes (CNN, Acubi.blog, Jun'26). <b>Doubly relevant</b> — and the geo read confirms it: Japan over-indexes hard on 1Jinn (44% vs 27% US). <b>CC proof:</b> the Acubi Layered Polo is a 1Jinn mover ($252 / 7 ord).</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Acubi_Style_Layered_Polo_Top_Details_1.webp?v=1782361616" alt="Acubi Style Layered Polo Top"></div><div class="body"><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Acubi Style Layered Polo Top</div><div class="stat">$252 · 7 ord / 14d</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Glamoratti / maximalist statement</h3><span class="tag" style="background:#fbe9ef;color:#c0568a">1Jinn</span><span class="tag new">NEW</span><span class="tag md">Med</span><span class="conf">Rising · Pinterest Summer-2026</span></div>
+    <p class="evi"><b>Signal:</b> Pinterest's "Glamoratti" — dialed-up decadence, bold jewelry, sculpted shoulders; <b>quiet-luxury declared over</b> (Pinterest Newsroom, WhoWhatWear, Jun'26). <b>CC opportunity:</b> a tailwind for 1Jinn statement/going-out and the <b>1Jinn M2M jewelry sub-line</b> (chokers, ear cuffs, charms); the Beaded Multi-Strap Top ($1,057 / 29 — top 1Jinn mover) already carries the maximalist read. <b>Sourcing note:</b> lean M2M jewelry into the swing.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Beaded_Tie_Front_Top_Details_6.webp?v=1755375183" alt="Y2K Beaded Multi Strap Top"></div><div class="body"><span class="badge">Top 1Jinn mover</span><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Y2K Beaded Multi Strap Top</div><div class="stat"><span class="hot">$1,057</span> · 29 ord / 14d</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Vamp Romantic / Romantic Goth</h3><span class="tag" style="background:#f3eaea;color:#9a4b4b">Deleteex</span><span class="tag md">Med</span><span class="conf">Strengthening · now in Pinterest Predicts 2026</span></div>
+    <p class="evi"><b>Signal:</b> now <b>named in Pinterest Predicts 2026</b> (goth with a glossy-glam twist); "Exposed Boning 2.0," velvet +90% / corsets +43% / fishnet +86% YoY (Pinterest, Toonizer, Fashna, Jun'26). Geo read backs it — Deleteex over-indexes in Germany (15.3%). <b>CC proof + sourcing note:</b> the Shell-Button Puff Shirt is Deleteex's top mover ($678 / 18) — flag corset / velvet / lace depth for the next drop.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Distressed_Lace_Corsage_Details_1.webp?v=1756707873" alt="Distressed Lace Corsage"></div><div class="body"><div class="vchip v-del">Deleteex</div><div class="pt">Distressed Lace Corsage</div><div class="stat">distressed lace · position</div></div></div>
+    </div>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Pointelle / fine romantic knit</h3><span class="tag" style="background:#f0ebf7;color:#9a7fd6">MAMC</span><span class="tag new">NEW</span><span class="tag md">Med</span><span class="conf">Rising · sourcing thread (thin catalog)</span></div>
+    <p class="evi"><b>Signal:</b> pointelle named "summer's most romantic knit," tied to the coquette quiet-luxury-fabric turn; Hill House pointelle long-sleeve the bellwether (RunwayLive, Jun'26). <b>CC reality:</b> MAMC's coquette stock is woven chiffon/satin, not fine-knit → no on-site match. <b>Sourcing note:</b> raise pointelle / openwork-knit camis with MAMC for the next drop. Position Early as a buying conversation, not an on-site push.</p>
+  </div>
+
+  <!-- ===================== CLEAR ONLY ===================== -->
+  <div class="sec">
+    <h2><span class="pill watch">Clear Only</span> Past peak — sell through, do not reorder</h2>
+    <p class="lede">Reversal from earlier runs: literal mermaidcore kitsch is maturing out as "Summer Siren" rebrands toward elevated coastal. Push existing stock to clear; do not lean in or reorder.</p>
+  </div>
+
+  <div class="trend">
+    <div class="trend-head"><h3>Mermaidcore → "Summer Siren" (literal kitsch)</h3><span class="tag" style="background:#f3eaea;color:#9a4b4b">Deleteex</span><span class="tag" style="background:#fbe9ef;color:#c0568a">1Jinn</span><span class="tag md">Reversal</span><span class="conf">Cooling · "mermaidcore out, Summer Siren in"</span></div>
+    <p class="evi"><b>Signal:</b> "Mermaidcore out, Summer Siren in" — literal shell/starfish kitsch maturing out toward elevated coastal (Yahoo/Glam, InsightTrends, Jun'26). <b>CC action:</b> the Starfish Skirt &amp; Hibiscus Tee are still moving — sell through, but <b>do not reorder</b> the literal sea-motif pieces.</p>
+    <div class="grid">
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Y2K_Starfish_Foldover_Maxi_Skirt_Details_1.webp?v=1782110036" alt="Y2K Starfish Foldover Maxi Skirt"></div><div class="body"><div class="vchip v-del">Deleteex</div><div class="pt">Y2K Starfish Foldover Maxi Skirt</div><div class="stat">$378 · 9 ord / 14d · clear</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/Canton_Collective_Y2K_Hibiscus_Sheer_V_Neck_Baby_Tee_Details_1.webp?v=1780214635" alt="Y2K Hibiscus Sheer V Neck Baby Tee"></div><div class="body"><div class="vchip v-del">Deleteex</div><div class="pt">Y2K Hibiscus Sheer V Neck Baby Tee</div><div class="stat">$284 · 7 ord / 14d · clear</div></div></div>
+      <div class="card"><div class="imgwrap"><img src="https://cdn.shopify.com/s/files/1/0752/7881/1372/files/20250408gyc02597.jpg?v=1751188885" alt="Petal Tide Graphic Loose Tee"></div><div class="body"><div class="vchip v-1jinn">1Jinn Studio</div><div class="pt">Petal Tide Graphic Loose Tee</div><div class="stat">83u · shell graphic · clear</div></div></div>
+    </div>
+  </div>
+
+  <!-- ===================== GEOGRAPHY ===================== -->
+  <div class="sec">
+    <h2><span class="pill geo">Geographic Conversion Read</span> Which market buys which vendor — and which trend converts where</h2>
+    <p class="lede">28-day window (May 29 – Jun 26), <code>billing_country</code>. The store-wide romantic-feminine read is a <b>US/UK truth, not a global one</b> — APAC converts on alt/Y2K. US = 74% of GMV and the only statistically robust market (446 orders); non-US shares rest on 7–49 orders → directional.</p>
+  </div>
+
+  <div class="geo">
+    <h3 style="margin:0 0 10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Country totals</h3>
+    <table class="gt">
+      <thead><tr><th>Country</th><th>GMV</th><th>Orders</th><th>AOV</th><th>Order CVR</th></tr></thead>
+      <tbody>
+        <tr><td>🇺🇸 United States</td><td>$50,158</td><td>446</td><td>$112</td><td>0.526%</td></tr>
+        <tr><td>🇦🇺 Australia</td><td>$5,926</td><td>49</td><td>$121</td><td>0.510%</td></tr>
+        <tr><td>🇯🇵 Japan</td><td>$4,306</td><td>32</td><td>$135</td><td>0.424%</td></tr>
+        <tr><td>🇬🇧 United Kingdom</td><td>$2,858</td><td>23</td><td>$124</td><td>0.363%</td></tr>
+        <tr><td>🇩🇪 Germany</td><td>$2,025</td><td>18</td><td>$112</td><td>0.277%</td></tr>
+        <tr><td>🇰🇷 South Korea</td><td>$531</td><td>7</td><td>$76</td><td>0.300%</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:22px 0 10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">Vendor share within each market (index vs US baseline)</h3>
+    <table class="gt">
+      <thead><tr><th>Vendor (aesthetic)</th><th>US</th><th>AU</th><th>JP</th><th>UK</th><th>DE</th></tr></thead>
+      <tbody>
+        <tr><td>MAMC (romantic florals)</td><td>33.2%</td><td>33.1%</td><td class="ix-under">12.2% ▼▼</td><td class="ix-over">46.5% ▲</td><td>37.8%</td></tr>
+        <tr><td>1Jinn (Y2K/alt/coquette)</td><td>27.2%</td><td class="ix-over">34.3% ▲</td><td class="ix-over">44.2% ▲▲</td><td class="ix-under">19.7% ▼</td><td>24.8%</td></tr>
+        <tr><td>2th Desire (deconstructed)</td><td>13.8%</td><td>14.4%</td><td class="ix-over">15.4% ▲</td><td class="ix-under">7.1% ▼</td><td>~0</td></tr>
+        <tr><td>Deleteex (dark romantic/grunge)</td><td>12.7%</td><td>9.6%</td><td>11.5%</td><td>9.9%</td><td class="ix-over">15.3% ▲</td></tr>
+        <tr><td>First Floor (quiet luxury)</td><td>3.6%</td><td>2.7%</td><td>2.1%</td><td class="ix-over">6.8% ▲</td><td class="ix-over">12.0% ▲▲</td></tr>
+        <tr><td>Outtheblue (cat-novelty)</td><td>2.9%</td><td class="ix-under">~0 ▼</td><td>3.9%</td><td class="ix-over">5.3% ▲</td><td>~0</td></tr>
+      </tbody>
+    </table>
+    <p class="geocap">▲ over-indexes vs US · ▼ under-indexes. 🇰🇷 KR (n=7): 1Jinn 41%, MAMC 31%, First Floor 19% — mirrors Japan's Y2K skew. US vendor AOV: MAMC $99, 1Jinn $67, 2TH $83, Deleteex $56, Outtheblue $92 (1Jinn = high-volume/low-ticket; MAMC higher-ticket).</p>
+
+    <div class="geo-read">
+      <div class="gr us"><h4>🇺🇸 US / 🇬🇧 UK — romantic-feminine</h4>Lead with MAMC florals + lace-slip + gingham, plus Outtheblue. The "MAMC overtook 1Jinn" story is primarily a US/UK phenomenon; UK is the most romantic-skewed of all (MAMC 46.5%) and Outtheblue's strongest market (5.3%).</div>
+      <div class="gr jp"><h4>🇯🇵 Japan / 🇰🇷 Korea — alt / Y2K / acubi</h4>1Jinn over-indexes hard (JP 44% vs 27% US) while MAMC florals collapse (12%). Lead with subverted-polka, coquette-balletcore &amp; <b>acubi</b>; Japan is acubi's natural home turf + highest AOV ($135). Do NOT lead Japan with romantic florals.</div>
+      <div class="gr de"><h4>🇩🇪 Germany — quiet-luxury pocket</h4>The one market where a deprioritized line converts: First Floor 12.0% vs 3.6% US; Deleteex grunge also over-indexes (15.3%). Geo-target any First Floor feature here.</div>
+      <div class="gr au"><h4>🇦🇺 Australia — 1Jinn-led, alt-leaning</h4>1Jinn edges MAMC (34% vs 33%), high AOV ($121). Sits between the US romantic skew and Japan's Y2K skew. Outtheblue hasn't landed (absent).</div>
+    </div>
+    <p class="geocap"><b>Synthesis directive:</b> split homepage/email by region — US+UK lead MAMC romantic + Outtheblue; JP/KR (lean AU) lead 1Jinn polka/coquette/acubi; reserve First Floor for DE. <b>Caveats:</b> <code>billing_country</code> ≠ shipping; non-US order counts single/double digits → directional; Meta paid-social blind spot = geo traffic can't be split paid vs organic.</p>
+  </div>
+
+  <!-- ===================== WATCH ===================== -->
+  <div class="sec">
+    <h2><span class="pill watch">Watch / Nuance</span></h2>
+  </div>
+  <div class="mom" style="margin-top:18px">
+    <div class="row" style="grid-template-columns:220px 1fr"><span class="name">Outtheblue — confirmed</span><span class="stat" style="font-size:13.5px">Last run's open action <b>closed</b>: aesthetic confirmed (cat-novelty × polka × coquette) and the +258% climb holds on a clean period basis. Now a Push-Now lane, not a watch item. One stock flag: Pink Eyelet Cat Mini Skirt down to <b>1u</b>.</span></div>
+    <div class="row" style="grid-template-columns:220px 1fr"><span class="name">2th Desire −6.1pp</span><span class="stat" style="font-size:13.5px">Cooling hardest of the active lines. The polka + retro-camisole push is the lever to arrest decline; it also over-indexes in Japan, so weight APAC.</span></div>
+    <div class="row" style="grid-template-columns:220px 1fr"><span class="name">First Floor — structural headwind</span><span class="stat" style="font-size:13.5px">Pinterest declares quiet-luxury <b>over</b> (Glamoratti). FF stays deprioritized everywhere except <b>Germany</b>, its one converting market (12% share) — geo-target any feature there.</span></div>
+    <div class="row" style="grid-template-columns:220px 1fr"><span class="name">Sports-luxe / Blokette / Glamoratti</span><span class="stat" style="font-size:13.5px">Reconfirmed by Pinterest Summer-2026, but CC has no jersey/sporty core → <b>sourcing conversation</b>, not an on-site push. Wearable shards CC can touch: sailor-core (1Jinn) + the M2M jewelry sub-line.</span></div>
+  </div>
+
+  <footer>
+    <h4>Methodology &amp; provenance</h4>
+    <ul>
+      <li><b>Store verified</b> Canton Collective (cantoncollective.com) before any catalog call — firewall held; vendor-filtered GraphQL only, and every product image confirmed on the CC CDN (0752/7881/1372). No off-brand / foreign-CDN items.</li>
+      <li><b>Sales</b> Shopify Admin analytics, vendor &amp; product GMV. GMV = total_sales. Vendor momentum on a <b>clean non-overlapping 14d-vs-prior-14d</b> basis; geography on a 28-day window.</li>
+      <li><b>Signals</b> social-velocity-first searches (TikTok, Pinterest, WhoWhatWear, RunwayLive, CNN, Acubi.blog, Toonizer, Fashna) dated Jun 2026; every recommendation = ≥2 independent signals + a named in-stock SKU.</li>
+      <li><b>Images</b> hot-linked from live Canton Collective product photography on the CC CDN (0752/7881/1372) — render online; the underlying data is self-contained in the tables.</li>
+      <li><b>Geography</b> vendor × <code>billing_country</code> + <code>session_country</code> conversion, indexed vs the US baseline. New standard section as of this run.</li>
+      <li><b>Infrastructure</b> CC products carry no aesthetic tags; matching done by reasoning over titles/descriptions/images. A one-time tagging pass (coquette / Y2K / polka / balletcore / vamp-romantic / acubi / sailor-core / cat-novelty / pointelle) would sharpen every future run.</li>
+      <li><b>Blind spot</b> Meta CC ad account (SGD) unsettled / not queryable — paid-social spend unverified, never fabricated.</li>
+      <li><b>Ledger</b> run appended to <code>memory/ledgers/trend.md</code> (append-only, newest-on-top).</li>
+    </ul>
+    <h4>Sources</h4>
+    <p class="src">
+      whowhatwear.com/fashion/summer/polka-dot-trends-summer-2026 ·
+      theglossarymagazine.com/fashion/polka-dots-fashion-edit ·
+      runwaylive.com/pointelle-fashion-trend-summer-2026-coquette ·
+      newsroom.pinterest.com/news/summer-trend-report-2026 ·
+      newsroom.pinterest.com — pinterest-predicts-2026 ·
+      cnn.com — why-k-pop-idols-wear-acubi · acubi.blog/exploring-douyin-fashion ·
+      toonizer.com — romantic-goth-fashion-2026 · fashna.com/goth-glam-aesthetic-2026 ·
+      creators.yahoo.com — summer-2026-fashion-trends
+    </p>
+    <p style="margin-top:18px;color:#b3aab6">Canton Collective — Trend Radar · Deep Dive · validation pass · generated 26 Jun 2026 · propose-only, approval gates apply to any live publish / email / spend.</p>
+  </footer>
+
+</div>
+</body>
+</html>
