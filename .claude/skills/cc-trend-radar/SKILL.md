@@ -62,6 +62,9 @@ For each surviving trend:
 
 A trend with strong external signal but zero catalog matches → POSITION EARLY + buying-conversation flag, not Push Now.
 
+### Step 3.5 — Geographic conversion read (required)
+Pull vendor × geography and place the trend findings on a map per `references/research-protocol.md` ("Geographic conversion read") and the queries in `.claude/rules/data-access.md`. The point: the store-wide zeitgeist is usually a US/UK truth, while Japan/Korea/AU convert on a different aesthetic (1Jinn Y2K/coquette/acubi over-indexes; MAMC romantic florals under-index there) and Germany is the lone quiet-luxury/First Floor pocket. Compute each vendor's share **within** each major market indexed vs the US baseline, then map vendor → trend lane → so each market's over-indexing vendor reveals its converting trend. Carry the result into the ledger's geo block (Step 6) and into any "lead this region with X" directive.
+
 ### Step 4 — Lifecycle placement + lane assignment
 Place each trend on the lifecycle (rising / peaking / fading) from the signal evidence, assign a lane, momentum, and confidence (High = social velocity + community + comp confirmation agree).
 
@@ -86,6 +89,7 @@ Then **append a new run block to `memory/ledgers/trend.md` in its EXACT existing
   - **Inventory** = matching active SKUs (count + key names).
   - **Directive** = the action, prefixed with the lane (PUSH NOW / POSITION EARLY / CLEAR ONLY).
 - Because First Floor is deprioritized, still give it a one-line "deprioritized — low coverage" row rather than deep analysis (keeps the file complete). UMAMIISM is discontinued — omit it entirely, no row.
+- **Geo block (required):** after the per-label sections, add a `### Geographic conversion read` block — a vendor × country share table (US, AU, JP, UK, DE, KR when present) with the over/under-index vs US, the trend×geo "lead each region with X" synthesis, and the standard caveats (`billing_country` ≠ shipping; small non-US order counts = directional; Meta paid-social blind spot). Track geo-share movement vs the prior run where the data allows.
 - If the file couldn't be read in Step 0, output the correctly-formatted run block in chat for the user to paste into the file, and say so.
 
 If editing the actual file isn't possible this session (no write access), produce the exact append block as a copy-paste artifact in the file's format.

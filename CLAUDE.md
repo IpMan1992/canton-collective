@@ -33,6 +33,9 @@ If it returns HAE or anything else, **STOP and ask me to switch.** This is the f
 - GMV = total_sales. **Verdict** vs trailing 4-week avg: within ±5% = FLAT, above = BETTER, below = WORSE.
 - **Vendor (sub-brand) GMV share is the primary lens** — CC is multi-brand, so who is gaining or ceding
   share matters more than store-level totals. **Flag any vendor share move of ±3pp.**
+- **Geography is the standard secondary lens** — vendor × `billing_country` over a 28-day window, indexed
+  vs the US baseline. The zeitgeist is usually a US/UK truth; Japan/Korea/AU convert on alt/Y2K (1Jinn),
+  Germany on quiet-luxury (First Floor). Details + queries in `.claude/rules/data-access.md`.
 
 ## 4. Agents (`.claude/agents/`) — hub-and-spoke, communicate via shared files
 - **store-manager** — weekly performance, vendor-share first. *(built)*

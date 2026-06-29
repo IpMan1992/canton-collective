@@ -3,7 +3,7 @@
 Read before every run; append after. Newest on top. Status: 🔺 Accelerating · ▶️ Steady · 🔻 Cooling · 🆕 New
 
 ## Run 2026-06-26 (bi-weekly scheduled cloud run — period-over-period validation pass)
-_Second 06-26 block by design, not a duplicate. The block below it was reconstructed from a Drive backup whose only delta-basis was the same-day 06-25 baseline (so its on-site deltas were necessarily Steady). This run re-pulls live and re-bases the read on a **clean non-overlapping 14-day comparison — Jun 12–26 vs prior 14d May 29–Jun 11** — to test whether MAMC's takeover is structural or a same-day artifact. **Verdict: structural.** Store GMV $32,789 (+7.6% vs prior 14d). Net-new value this run = (1) the clean period-over-period vendor read confirms every prior call; (2) two new external threads — **pointelle romantic-knit** (coquette refinement) and Pinterest **"Glamoratti" maximalism** (quiet-luxury declared *over* → structural First Floor headwind); (3) romantic-goth now named in Pinterest Predicts (Delete-Ex tailwind strengthens); (4) the MAMC hero is **more oversold than last run (−33u vs −32u)** and a second floral SKU is now low (10u). Firewall: store verified cantoncollective.com; all sampled product media on CC CDN `…/0752/7881/1372/`, zero HAE._
+_Second 06-26 block by design, not a duplicate. The block below it was reconstructed from a Drive backup whose only delta-basis was the same-day 06-25 baseline (so its on-site deltas were necessarily Steady). This run re-pulls live and re-bases the read on a **clean non-overlapping 14-day comparison — Jun 12–26 vs prior 14d May 29–Jun 11** — to test whether MAMC's takeover is structural or a same-day artifact. **Verdict: structural.** Store GMV $32,789 (+7.6% vs prior 14d). Net-new value this run = (1) the clean period-over-period vendor read confirms every prior call; (2) two new external threads — **pointelle romantic-knit** (coquette refinement) and Pinterest **"Glamoratti" maximalism** (quiet-luxury declared *over* → structural First Floor headwind); (3) romantic-goth now named in Pinterest Predicts (Delete-Ex tailwind strengthens); (4) the MAMC hero is **more oversold than last run (−33u vs −32u)** and a second floral SKU is now low (10u). Firewall: store verified cantoncollective.com; all sampled product media on the CC CDN `…/0752/7881/1372/` — no off-brand / foreign-CDN items._
 
 **Cross-label pattern:** Romantic-feminine + polka/coquette cluster is still the fortnight's engine, and a clean period-over-period cut (not a same-day baseline) **confirms the MAMC takeover is real, not noise: MAMC 22.4%→36.0% (+13.6pp, $11.8k / +73%) holds #1**, while alt/Y2K lines keep ceding (1Jinn 34.3%→27.4%, −6.9pp, $9.0k / −14%; 2TH Desire 16.9%→10.8%, −6.1pp, $3.5k / −31% — cooling hardest). Delete-Ex is the steady alt anchor (#3, 12.8% / −0.1pp, $4.2k / +7%). **±3pp flags: MAMC +13.6, 1Jinn −6.9, 2TH −6.1** (Outtheblue +2.4pp just under the bar but is the fastest % climber, +258%). Two refinements vs the reconstructed block: (1) **pointelle knitwear** emerges as summer's romantic-coquette knit story — a sourcing thread, CC's coquette stock is woven/satin not fine-knit; (2) **Pinterest "Glamoratti" maximalism** declares quiet-luxury over — a tailwind for 1Jinn statement/going-out + the 1Jinn M2M jewelry sub-line, and a structural headwind for First Floor.
 **Highest-leverage opportunity:** Same two unpulled levers as the prior block, now with sharper urgency: **(a) RESTOCK MAMC's Lavender Floral Chiffon Slip Mini** — still the store's #1 mover ($1,792 / 31 ord in 14d) but inventory is now **−33u (deeper oversell than the −32u flagged last run)**; every oversold day is forgone GMV plus fulfilment risk on the most on-trend SKU in the store. **Green Fold-Over Asymmetric Hem Midi Skirt** is now a top-3 MAMC mover ($1,035 / 17) and **down to 10u — the next restock candidate.** **(b) Give Outtheblue homepage + email weight now** — fastest climber confirmed across a clean period basis (+258%, 1.0%→3.4%, +2.4pp), with deep stock on the two peaking prints (Polka Dot Cat LS Knit 305u, Velvet Polka Dot Raglan 294u, Polka Dot Cat Heart Crew 239u, Pink Polka Dot Balletcore Cami 70u). Textbook POSITION EARLY → PUSH NOW with proven on-site velocity. (Note: Pink Eyelet Cat Print Mini Skirt down to 1u — near sellout.)
@@ -57,6 +57,40 @@ _Vendor momentum: $11,806 (+73.0% vs prior 14d), share 36.0% / +13.6pp — holds
 **Cross-label buying flag — Sports-luxe / Blokette / Glamoratti (reconfirmed by Pinterest Summer-2026):** sport moving from spectator moment to full aesthetic; maximalism + bold jewelry the year's headline. CC has **no jersey/sporty core** → **POSITION EARLY as a SOURCING conversation**, not an on-site push. The two wearable shards CC can touch today: **sailor-core** (1Jinn, see above) and the **1Jinn M2M jewelry sub-line** as a Glamoratti play.
 
 **Infrastructure note:** CC products still carry **no aesthetic tags** — matching was again done by reasoning over titles/descriptions/images + CDN-verified live product. A one-time tagging pass (coquette / Y2K / polka / balletcore / vamp-romantic / acubi / sailor-core / cat-novelty / pointelle) would make every future radar run faster and sharper.
+
+### Geographic conversion read (28d, May 29–Jun 26 · billing_country)
+_New standard section. The store-wide romantic-feminine read is a **US/UK truth, not a global one** — APAC converts on alt/Y2K. US = 74% of GMV and the only statistically robust market (446 orders); all non-US shares below rest on 7–49 orders → directional._
+
+**Country totals:**
+| Country | GMV | Orders | AOV | Order CVR |
+|---|---|---|---|---|
+| 🇺🇸 US | $50,158 | 446 | $112 | 0.526% |
+| 🇦🇺 AU | $5,926 | 49 | $121 | 0.510% |
+| 🇯🇵 JP | $4,306 | 32 | $135 | 0.424% |
+| 🇬🇧 UK | $2,858 | 23 | $124 | 0.363% |
+| 🇩🇪 DE | $2,025 | 18 | $112 | 0.277% |
+| 🇰🇷 KR | $531 | 7 | $76 | 0.300% |
+
+**Vendor share within each market (index vs US baseline):**
+| Vendor (aesthetic) | US | AU | JP | UK | DE | Read |
+|---|---|---|---|---|---|---|
+| MAMC (romantic florals) | 33.2% | 33.1% | 12.2% ▼▼ | 46.5% ▲ | 37.8% | Over-indexes UK/DE, **collapses in Japan** |
+| 1Jinn (Y2K/alt/coquette) | 27.2% | 34.3% ▲ | 44.2% ▲▲ | 19.7% ▼ | 24.8% | **Japan/Korea/AU home turf** |
+| 2th Desire (deconstructed) | 13.8% | 14.4% | 15.4% ▲ | 7.1% ▼ | ~0 | Skews APAC |
+| Deleteex (dark romantic/grunge) | 12.7% | 9.6% | 11.5% | 9.9% | 15.3% ▲ | Over-indexes Germany |
+| First Floor (quiet luxury) | 3.6% | 2.7% | 2.1% | 6.8% ▲ | 12.0% ▲▲ | **Germany is its one real market** |
+| Outtheblue (cat-novelty) | 2.9% | ~0 ▼ | 3.9% | 5.3% ▲ | ~0 | UK + Japan, absent AU/DE |
+
+_(🇰🇷 KR, n=7: 1Jinn 41%, MAMC 31%, First Floor 19% — mirrors Japan's Y2K skew.)_
+
+**Trend × geography — lead each region with its converting aesthetic:**
+- **US / UK** — romantic-feminine (MAMC florals + lace-slip + gingham) + Outtheblue. The "MAMC overtook 1Jinn" story is primarily a US/UK phenomenon; UK is the most romantic-skewed of all (MAMC 46.5%) and Outtheblue's strongest market.
+- **Japan / Korea** — 1Jinn Y2K / coquette / **acubi**; MAMC florals under-convert badly. Japan = acubi's natural home turf + highest AOV ($135). Do NOT lead Japan with romantic florals.
+- **Germany** — the lone quiet-luxury pocket: First Floor over-indexes 12% vs 3.6% US; Deleteex grunge also over-indexes. Geo-target any First Floor feature here.
+- **Australia** — 1Jinn-led, alt-leaning, high AOV; Outtheblue hasn't landed (absent).
+- **Synthesis directive:** split homepage/email by region — US+UK lead MAMC romantic + Outtheblue; JP/KR (lean AU) lead 1Jinn polka/coquette/acubi; reserve First Floor for DE.
+
+_Caveats: `billing_country` ≠ shipping; non-US order counts are single/double digits → directional; Meta paid-social blind spot = geo traffic can't be split paid vs organic._
 
 ---
 

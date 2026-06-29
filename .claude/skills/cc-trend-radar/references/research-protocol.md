@@ -39,6 +39,19 @@ Every recommended trend must be defensible to a buyer/marketer without re-resear
 - **CC opportunity & proof** — matching SKU count + names + sub-brand(s); whether any are ALREADY in recent sales climbers/winners (cite the number); the specific action.
 - **Sourcing note** (Position Early) — what to raise with the sub-brand for the next drop.
 
+## Geographic conversion read (required — trends convert differently by market)
+
+The store-wide "what's the zeitgeist" read is often a **US/UK truth, not a global one** — Asia-Pacific markets convert on a different aesthetic. So every run must place the trend findings on a geographic map:
+
+1. Pull vendor × `billing_country` + country totals + `session_country` conversion (see `data-access.md`, 28-day window).
+2. For each major market (US, AU, JP, UK, DE — and KR when present), compute each vendor's **share within that country** and **index it vs the US baseline** (country share − US share, in pp). The deviations are the signal, not the raw $ (US dwarfs everything).
+3. Map vendor → its trend lanes (from this run's radar) → so a vendor's over-index in a market = that market's converting trend. Worked example from the live data:
+   - **US / UK** — romantic-feminine (MAMC florals/lace-slip) over-indexes → lead these markets with the PUSH-NOW romantic stack + Outtheblue.
+   - **Japan / Korea** — 1Jinn (Y2K / coquette / **acubi**) over-indexes hard (Japan ≈ 44% 1Jinn vs ~27% US) while MAMC collapses → lead with alt/Y2K; this is acubi's natural home turf + highest AOV.
+   - **Germany** — First Floor (quiet-luxury) + Deleteex (grunge) over-index → the one market where a deprioritized line converts; geo-target any First Floor feature here.
+   - **Australia** — 1Jinn-led, alt-leaning, Outtheblue absent.
+4. Output a **geo block** in the ledger run (see SKILL.md Step 6): vendor × country share table + the trend×geo conversion read + the standard caveats.
+
 ## Confidence
 
 - **High** — social velocity + aesthetic-community + comp/resale confirmation agree, AND catalog matches exist (ideally already climbing).
